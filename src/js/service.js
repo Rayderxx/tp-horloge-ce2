@@ -3,15 +3,15 @@ app.service('gamesService', function () {
         hours: 0,
         minutes: 0,
         response: null,
-
+        //init hours ramdomly
         initHours: function() {
             this.hours =  _.random(0,23); 
             this.minutes = Math.floor(Math.random()*11)*5;
             this.response =  {hours: 0, minutes: 0}
         },
-
+        //check if is top or bottom arrow
+        //return integer
         checkArrow: function(value, attrs, element) {
-
             if(element.hasClass('arrow-top')){
                 value ++;
             }else {
@@ -20,6 +20,8 @@ app.service('gamesService', function () {
             return this.checkType(attrs.switch, value);
         },
 
+        //check if is hours or minutes 
+        //return integer
         checkType: function(type, value){
             if(type == "hours") {
                 if(value > 23 ){
@@ -39,19 +41,21 @@ app.service('gamesService', function () {
             return value
         },
 
+        //check if is morning/afternoon 
+        //return string
         whichTime: function(){
-            if(this.hours >= 12 <= 17){
+            if(this.hours >= 12 && this.hours <= 17){
                 return "Après midi";
-            }else if(this.hours >= 1 <= 11){
+            }else if(this.hours >= 1 && this.hours <= 11){
                 return "Matin";
             }else{
                 return "Soir";
             }
         },
 
+        //check if is win
+        //return boolean
         win: function(){
-            console.log(this.hours)
-            console.log(this.response.hours)
             if(this.response.hours == this.hours && this.response.minutes == this.minutes) {
                 return true;
             }else{

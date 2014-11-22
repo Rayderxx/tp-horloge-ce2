@@ -83,7 +83,6 @@ var Clock = function() {
         imageClock.src = 'img/' + clock + '.png';
     }
     _self.setTime = function(hour, minute) {
-        console.log(hour)
         var tmpHour = hour > 12 ? hour - 12 : hour + minute / 60;
         var degHour = tmpHour * 360 / 12;
         var degMinute = minute * 360 / 60;
