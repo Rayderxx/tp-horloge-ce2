@@ -6,10 +6,7 @@ body {
     background-size: cover;
 }
 
-.content {
-
-}
-
+//menu home
 .menu {
     width: 500px;
     margin: 0 auto;
@@ -33,3 +30,74 @@ body {
         }
     }
 }
+
+//horloge
+#game {
+    margin: 0 auto;
+    margin-top: 48px;
+    width: 300px;
+}
+
+.container {
+    width: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.select-contain {
+    float: left;
+    width: 250px;
+
+    .arrow-contain{
+        float: left;
+        width: 51px;
+        margin-right: 12px;
+
+        .arrow {
+            cursor: pointer;
+        }
+        .arrow-top{
+            background-image: url('img/button_up.png');
+            background-repeat: no-repeat; 
+            width: 51px;
+            height: 77px;
+            margin-bottom: 10px;
+        }
+        .arrow-bottom{
+            background-image: url('img/button_down.png');
+            background-repeat: no-repeat;
+            width: 51px;
+            height: 77px;   
+        }
+    }
+
+    .arrow-contain.right {
+        float: right;
+    }
+
+    .time{
+        background-image: url('img/span.png');
+        width: 174px;
+        height: 160px;
+        float: left;
+        font-size: 140px;
+        text-align: center;
+    }
+}
+
+.check{
+    background-image: url('img/verify.png');
+    width: 462px;
+    height: 112px; 
+    border: none;
+    cursor: pointer;
+}
+
+.title{
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 50px;
+    color: white;
+}
+
