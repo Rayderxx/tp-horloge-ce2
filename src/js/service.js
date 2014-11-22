@@ -40,10 +40,23 @@ app.service('gamesService', function () {
         },
 
         whichTime: function(){
-            if(this.hours >= 12){
+            if(this.hours >= 12 <= 17){
                 return "Après midi";
+            }else if(this.hours >= 1 <= 11){
+                return "Matin";
+            }else{
+                return "Soir";
             }
-            return "Matin";
+        },
+
+        win: function(){
+            console.log(this.hours)
+            console.log(this.response.hours)
+            if(this.response.hours == this.hours && this.response.minutes == this.minutes) {
+                return true;
+            }else{
+                return false;
+            }
         }
     }
 });
