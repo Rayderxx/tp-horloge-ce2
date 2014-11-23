@@ -80,7 +80,7 @@ var Clock = function() {
         stage.add(layerClock, layerHour, layerMinute);
     };
     _self.onChangeClock = function(clock) {
-        imageClock.src = 'img/' + clock + '.png';
+        imageClock.src = clock;
     }
     _self.setTime = function(hour, minute) {
         var tmpHour = hour > 12 ? hour - 12 : hour + minute / 60;

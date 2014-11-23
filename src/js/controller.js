@@ -21,3 +21,11 @@ app.controller('gameCtrl', ['$scope','gamesService', function($scope, gamesServi
         gamesService.clock.setTime(gamesService.hours, gamesService.minutes);
     }
 }]);
+
+app.controller('optionCtrl', ['$scope','gamesService', function($scope, gamesService){
+    $scope.clocks = gamesService.clocks();
+
+    $scope.choice = function(clock){
+        gamesService.clockChoice = clock;
+    }
+}]);

@@ -5,9 +5,15 @@ app.service('gamesService', function () {
         response: null,
         showPopup: false,
         clock: null,
+        clockChoice: "img/clock1.png",
+        clocks: function(){
+
+            return ["img/clock1.png", "img/clock2.png", "img/clock3.png"]
+        },
 
         startGame: function(){
             this.clock = new Clock();
+            this.clock.onChangeClock(this.clockChoice)
             this.initHours();
         },
         //init hours ramdomly
@@ -77,7 +83,6 @@ app.service('gamesService', function () {
 
         resetGame: function(){
             this.showPopup = false;
-
         }
     }
 });

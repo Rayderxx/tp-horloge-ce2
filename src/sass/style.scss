@@ -189,5 +189,30 @@ body {
     display: block;
 }
 
+h1.choice {
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 600px;
+    margin-left: -130px;
+}
+
+.options-content {
+    background-color: white;
+    border: 4px solid #DDDDDD;
+    border-radius: 10px;
+    width: 400px;
+    position: absolute;
+    left: 50%;
+    margin-left: -200px;
+    padding: 20px;
+    img {
+        width: 100px;
+        margin-left: 25px;
+        cursor: pointer;
+    }
+}
+
 
 
