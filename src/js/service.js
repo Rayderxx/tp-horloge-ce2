@@ -1,4 +1,4 @@
-app.service('gamesService', function () {
+app.service('gamesService', [function () {
     return {
         hours: 0,
         minutes: 0,
@@ -85,4 +85,4 @@ app.service('gamesService', function () {
             this.showPopup = false;
         }
     }
-});
+}]);

@@ -1,5 +1,5 @@
 //init clock with kineticjs
-app.directive('horloge', function(gamesService) {
+app.directive('horloge', ['gamesService', function(gamesService) {
     return {
         restrict: 'A',
         controler: "gameCtrl",
@@ -9,10 +9,10 @@ app.directive('horloge', function(gamesService) {
             gamesService.clock.setTime(gamesService.hours, gamesService.minutes);
         }
     };
-});
+}]);
 
 //init template for hours
-app.directive('hours', function() {
+app.directive('hours', [function() {
     return {
         scope : {
             type: "@type",
@@ -22,10 +22,10 @@ app.directive('hours', function() {
         restrict: 'E',
         templateUrl: 'select-form.html'
     };
-});
+}]);
 
 //init arrow for hours selection
-app.directive('switch', function(gamesService) {
+app.directive('switch', ['gamesService', function(gamesService) {
     return {
         restrict: 'A',
         controller: "gameCtrl",
@@ -38,9 +38,9 @@ app.directive('switch', function(gamesService) {
             });
         }
     };
-});
+}]);
 
-app.directive('popup', function(gamesService){
+app.directive('popup', ['gamesService', function(gamesService){
     return {
         controller: "gameCtrl",
         templateUrl: 'popup.html',
@@ -56,9 +56,9 @@ app.directive('popup', function(gamesService){
             });
         }
     }
-});
+}]);
 
-app.directive('replay', function(gamesService){
+app.directive('replay', ['gamesService', function(gamesService){
     return {
         restrict: 'A',
         link: function (scope, element, attrs) {
@@ -68,4 +68,4 @@ app.directive('replay', function(gamesService){
             });
         }
     }
-});
+}]);

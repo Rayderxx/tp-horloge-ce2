@@ -134,6 +134,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-coffee');
 	grunt.registerTask('dist', ['uglify:dist']);
 
-	grunt.registerTask('default', 'mochaTest');
-	grunt.registerTask('dev', ['concat:dist', 'compass:dist', 'imagemin', 'inline:dist', 'copy:main', 'bower:install', 'concat:dist', 'uglify'])
+	grunt.registerTask('default', ['concat:dist', 'compass:dist', 'imagemin', 'inline:dist', 'copy:main', 'bower:install', 'concat:dist', 'uglify:dist'])
 }

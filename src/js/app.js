@@ -1,6 +1,6 @@
 var app = angular.module('app', ['ui.router']);
 
-app.config(function($stateProvider, $urlRouterProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     //
     // For any unmatched url, redirect to /state1
     $urlRouterProvider.otherwise("/home");
@@ -14,9 +14,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: "/home",
             templateUrl: "home.html",
             resolve: {
-                app: function(gamesService){
+                app: ['gamesService', function(gamesService){
                     gamesService.resetGame();
-                }
+                }]
             }
         })
         .state('app.game', {
@@ -32,4 +32,4 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: "/credits",
             templateUrl: 'credits.html'
         });
-});
+}]);
