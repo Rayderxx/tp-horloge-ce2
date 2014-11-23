@@ -101,3 +101,93 @@ body {
     color: white;
 }
 
+#modal{
+    background-color: white;
+    border: 4px solid #DDDDDD;
+    border-radius: 10px;
+    width: 400px;
+    min-height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -200px;
+    margin-top: -50px;
+    padding-bottom: 20px;
+    z-index: 1000;
+
+    span.cross{
+        display:block;
+        position: absolute;
+        background-image: url('img/cross.png');
+        background-repeat: no-repeat;
+        width: 92px;
+        height: 92px;
+        top: -50px;
+        right: -50px;
+        cursor: pointer;
+    }
+    .popup-image{
+        width: 565px;
+        height: 141px;
+        width: 350px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+    .popup-image.win{
+        background-image: url('img/success.png') ;
+    }
+    .popup-image.loose{
+        background-image: url('img/fail.png') ;
+    }
+
+    span{
+        text-align: center;
+        width: 100%;
+        display: block;
+        font-size: 25px;
+        margin-bottom: 30px;
+    }
+
+    a{
+        width: 150px;
+        height: 50px;
+        float: left;
+        display: block;
+        background-size: contain;
+    }
+
+    a.retour {
+        background-image: url('img/button_menu.png');
+        background-repeat: no-repeat; 
+        margin-left: 60px;
+    }
+
+    a.replay {
+        background-image: url('img/button_replay.png');
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+}
+
+#cover{
+    background-color: black;
+    position: fixed;
+    z-index: 900;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+}
+
+.back {
+    width: 117px;
+    height: 117px;
+    background-image: url('img/retour.png');
+    display: block;
+}
+
+
+

@@ -7,13 +7,29 @@ app.config(function($stateProvider, $urlRouterProvider) {
     //
     // Now set up the states
     $stateProvider
+        .state('app', {
+            templateUrl: "app.html",
+        })
         .state('home', {
             url: "/home",
-            templateUrl: "home.html"
+            templateUrl: "home.html",
+            resolve: {
+                app: function(gamesService){
+                    gamesService.resetGame();
+                }
+            }
         })
-        .state('game', {
+        .state('app.game', {
             url: "/game",
-            controller: "gameCtrl",
             templateUrl: 'game.html'
+        })
+        .state('app.options', {
+            url: "/options",
+            controller: "optionCtrl",
+            templateUrl: 'options.html'
+        })
+        .state('app.credits', {
+            url: "/credits",
+            templateUrl: 'credits.html'
         });
 });

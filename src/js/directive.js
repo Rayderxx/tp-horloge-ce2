@@ -4,10 +4,9 @@ app.directive('horloge', function(gamesService) {
         restrict: 'A',
         controler: "gameCtrl",
         link: function (scope, element) {
-            var clock = new Clock();
-            gamesService.initHours();
+            gamesService.startGame();
             scope.titre = gamesService.whichTime();
-            clock.setTime(gamesService.hours, gamesService.minutes);
+            gamesService.clock.setTime(gamesService.hours, gamesService.minutes);
         }
     };
 });
@@ -32,7 +31,6 @@ app.directive('switch', function(gamesService) {
         controller: "gameCtrl",
         link: function (scope, element, attrs) {
             element.on('click', function(){
-                console.log(gamesService);
                 var time = element.parent().parent().find('.time');
                 var value = time.html();
                 value = gamesService.checkArrow(value, attrs, element);
@@ -40,4 +38,34 @@ app.directive('switch', function(gamesService) {
             });
         }
     };
+});
+
+app.directive('popup', function(gamesService){
+    return {
+        controller: "gameCtrl",
+        templateUrl: 'popup.html',
+        link: function(scope, element, iAttrs){
+            scope.$watch(function(){
+                return gamesService.showPopup;
+            }, function(newVal, oldVal){
+                if(newVal) {
+                    element.show();
+                }else{
+                    element.hide();
+                }
+            });
+        }
+    }
+});
+
+app.directive('replay', function(gamesService){
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            element.on('click', function(e){
+                $('.select-contain .time').html("0");
+                e.preventDefault();
+            });
+        }
+    }
 });

@@ -3,6 +3,13 @@ app.service('gamesService', function () {
         hours: 0,
         minutes: 0,
         response: null,
+        showPopup: false,
+        clock: null,
+
+        startGame: function(){
+            this.clock = new Clock();
+            this.initHours();
+        },
         //init hours ramdomly
         initHours: function() {
             this.hours =  _.random(0,23); 
@@ -18,6 +25,10 @@ app.service('gamesService', function () {
                 value--;
             }
             return this.checkType(attrs.switch, value);
+        },
+
+        hoursToString: function(){
+            return this.hours+':'+this.minutes;
         },
 
         //check if is hours or minutes 
@@ -56,11 +67,17 @@ app.service('gamesService', function () {
         //check if is win
         //return boolean
         win: function(){
+            this.showPopup = true;
             if(this.response.hours == this.hours && this.response.minutes == this.minutes) {
                 return true;
             }else{
                 return false;
             }
+        },
+
+        resetGame: function(){
+            this.showPopup = false;
+
         }
     }
 });
