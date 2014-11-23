@@ -37,6 +37,7 @@
     "mocha": "^2.0.1"
   },
   "dependencies": {
+    "grunt-contrib-jshint": "^0.10.0",
     "grunt-protractor-runner": "^1.1.4",
     "grunt-protractor-webdriver": "^0.1.9",
     "protractor": "^1.4.0"

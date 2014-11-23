@@ -1,3 +1,4 @@
+'use strict';
 app.service('gamesService', [function () {
     return {
         hours: 0,

@@ -1,3 +1,4 @@
+'use strict';
 //init clock with kineticjs
 app.directive('horloge', ['gamesService', function(gamesService) {
     return {

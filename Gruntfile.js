@@ -130,8 +130,11 @@ module.exports = function(grunt) {
                 options: {
                 }
             },
+        },
+        jshint: {
+            all: ['Gruntfile.js', 'src/*.js', 'test/*.js']
         }
-	})
+	});
 
 	// Import du package
 	grunt.loadNpmTasks('grunt-contrib-concat');
@@ -146,6 +149,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-protractor-runner');
     grunt.loadNpmTasks('grunt-protractor-webdriver');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
 
-	grunt.registerTask('default', ['concat:dist', 'compass:dist', 'imagemin', 'inline:dist', 'copy:main', 'bower:install', 'concat:dist', 'uglify:dist', 'protractor'])
-}
+	grunt.registerTask('default', ['concat:dist', 'compass:dist', 'imagemin', 'inline:dist', 'copy:main', 'bower:install', 'concat:dist', 'uglify:dist', 'jshint', 'protractor']);
+};
