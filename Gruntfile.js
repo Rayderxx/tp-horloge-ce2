@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 			},
 			js: {
 				files: ['src/js/*.js'],
-				tasks: ['concat']
+				tasks: ['concat', 'protractor']
 			},
 			bower: {
 				files: ['bower.json'],
@@ -38,7 +38,7 @@ module.exports = function(grunt) {
 			},
 			index: {
 				files: ['src/index.html', 'src/partials/*'],
-				tasks: ['inline']
+				tasks: ['inline', 'protractor']
 			},
 			image: {
 				files: ['src/img/*'],
@@ -48,7 +48,7 @@ module.exports = function(grunt) {
 			fonts: {
 				files: ['src/fonts/'],
 				tasks: ['copy']
-			}		
+			},		
         },
 		concat: {
 			dist: {
@@ -118,7 +118,19 @@ module.exports = function(grunt) {
                     'src/js/card.js': 'src/js/coffee/card.coffee' // 1:1 compile
 		    	}
 			}
-		}
+		},
+        protractor: {
+            options: {
+                configFile: "conf.js", // Default config file
+                keepAlive: true, // If false, the grunt process stops when the test fails.
+                noColor: false, // If true, protractor will not use colors in its output.
+            },
+
+            your_target: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too.
+                options: {
+                }
+            },
+        }
 	})
 
 	// Import du package
@@ -132,7 +144,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-bower-task');
 	grunt.loadNpmTasks('grunt-mocha-test');
 	grunt.loadNpmTasks('grunt-contrib-coffee');
-	grunt.registerTask('dist', ['uglify:dist']);
+    grunt.loadNpmTasks('grunt-protractor-runner');
+    grunt.loadNpmTasks('grunt-protractor-webdriver');
 
-	grunt.registerTask('default', ['concat:dist', 'compass:dist', 'imagemin', 'inline:dist', 'copy:main', 'bower:install', 'concat:dist', 'uglify:dist'])
+	grunt.registerTask('default', ['concat:dist', 'compass:dist', 'imagemin', 'inline:dist', 'copy:main', 'bower:install', 'concat:dist', 'uglify:dist', 'protractor'])
 }

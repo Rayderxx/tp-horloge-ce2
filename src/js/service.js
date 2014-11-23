@@ -13,7 +13,7 @@ app.service('gamesService', [function () {
 
         startGame: function(){
             this.clock = new Clock();
-            this.clock.onChangeClock(this.clockChoice)
+            this.clock.changeBackgroundClock(this.clockChoice)
             this.initHours();
         },
         //init hours ramdomly
